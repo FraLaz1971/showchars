@@ -1,0 +1,48 @@
+# showchars.c shows size and range of char data type
+# to compile on linux (note the -lm , meaning linking math lib)
+gcc showchars.c -o showchars -lm
+#to run use piping to less for paging long output
+./showchars | less
+# and move with the arrow keys to scroll all the output
+# you can compile it also using the GNU make utility
+make showchars
+# or for a complete build just
+make
+# or in MS win cmd be sure make calls mingw32-make.exe
+make -f Makefile.win
+# or in MS win using mingw 64bit terminal (or 32bit, in case) be sure make is mingw32-make
+make -f Makefile
+# or in MS win using the cmd terminal be sure make is mingw32-make
+make -f Makefile.win
+# if you copy the Makefile.ext of your choice on a file named Makefile
+# you can omit the -f Makefilename
+# e.g. if you are using cmd shell
+cp Makefile.win Makefile
+# to save the output on an ascii file on linux/mac terminal
+./showchars > numbers.txt
+# on MS cmd to save the output on an ascii file by terminal
+.\showchars.exe > numbers.txt 
+# on MS mingw/msys2 to save the output on an ascii file by terminal
+./showchars.exe > numbers.txt 
+# to plot numbers printed by showchars program you need gnuplot installed
+# to plot the line of printed numbers on the screen with gnuplot from cmd/mingw/linux terminal
+gnuplot -p -e "plot 'numbers.txt'"
+# or on linux/mac
+bash plotnumbers.sh
+# or after making executable with chmod +x plotnumbers.sh (you need to create dataset file before)
+./plotnumbers.sh
+#or using make in mac/linux
+make plot
+#or using make in MS win mingw
+mingw-make32 -f Makefile.mingw plot
+# to just create the
+# to plot from file explorer GUI on MS win click with mouse on plotchars.bat
+# to plot from file explorer GUI on mac/linux click with mouse on plotchars.sh
+# if you install git-bash app on MS win https://gitforwindows.org/ , 
+# you can run bash/unix-shell scripts clicking with the mouse on the icon in file explorer as well
+#to plot data produced by the program
+make plot
+# to just create the data file
+make data
+# to clean all produced files
+make clean

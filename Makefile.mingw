@@ -1,0 +1,21 @@
+CC	= gcc -g -O
+RM	= rm
+OBJ	= showchars.o
+TARGET 	= showchars.exe
+DATASET = numbers.txt
+
+all: $(TARGET)
+
+showchars.o: showchars.c
+	$(CC) -c showchars.c -o showchars.o
+
+$(TARGET): showchars.o
+	$(CC) showchars.o -o $(TARGET) $(LDFLAGS)
+
+.PHONY: clean all
+
+clean:
+	$(RM) $(OBJ) $(TARGET) $(DATASET)
+
+plot:
+	bash plotchars.sh
