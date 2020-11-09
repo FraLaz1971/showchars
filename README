@@ -14,6 +14,10 @@ make -f Makefile.win
 make -f Makefile
 # or in MS win using the cmd terminal be sure make is mingw32-make
 make -f Makefile.win
+# to cross-compile on linux for MS win 64 bit executables
+make -f Makefile-cross-mingw
+# you can run then with it with linux+wine
+wine showchars.exe
 # if you copy the Makefile.ext of your choice on a file named Makefile
 # you can omit the -f Makefilename
 # e.g. if you are using cmd shell

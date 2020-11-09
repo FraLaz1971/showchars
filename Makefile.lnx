@@ -1,5 +1,5 @@
 CC	= gcc -g -O
-RM	= rm
+RM	= rm -f
 OBJ	= showchars.o
 LDFLAGS = -lm
 TARGET 	= showchars
