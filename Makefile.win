@@ -20,7 +20,7 @@ clean:
 	$(RM) $(OBJ) $(TARGET) $(DATASET)
 
 data: $(TARGET)
-        .\$(TARGET) > $(DATASET)
+	.\$(TARGET) > $(DATASET)
 
 plot: data
 	cmd /c plotchars.bat

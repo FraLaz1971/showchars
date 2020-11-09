@@ -1,17 +1,18 @@
 CC	= gcc -g -O
-RM	= rm
+RM	= del
 OBJ	= showchars.o
 LDFLAGS = -lm
-TARGET 	= showchars
+TARGET 	= showchars.exe
 DATASET = numbers.txt
 
-all: showchars data
+
+all: $(TARGET)
 
 showchars.o: showchars.c
 	$(CC) -c showchars.c -o showchars.o
 
 $(TARGET): showchars.o
-	$(CC) showchars.o -o showchars $(LDFLAGS)
+	$(CC) showchars.o -o $(TARGET) $(LDFLAGS)
 
 .PHONY: clean all plot data
 
@@ -19,7 +20,7 @@ clean:
 	$(RM) $(OBJ) $(TARGET) $(DATASET)
 
 data: $(TARGET)
-	./$(TARGET) > $(DATASET)
+	.\$(TARGET) > $(DATASET)
 
 plot: data
-	gnuplot -p -e "plot '"$(DATASET)"'"
+	cmd /c plotchars.bat
